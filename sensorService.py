@@ -277,6 +277,10 @@ class httpDataLayer(threading.Thread):
                     notConnected = False
                     
                 except:
+                    # Flag connection as down.
+                    connected = False
+                    notConnected = True
+                    
                     tb = traceback.format_exc()
                     self.__logger.log("%s" %tb)
             
