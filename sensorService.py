@@ -125,11 +125,11 @@ class dataHandler(threading.Thread):
                     tempData.update({entry: newData[entry]})
                     
                     # Correct timestamp datatype.
-                    tsStr = tempData[entry].pop('time')
+                    tsStr = tempData[entry].pop('dts')
                     goodTs = self.__toDatetime(tsStr)
                     
-                    # Set the new 'time' with a proper date object.
-                    tempData[entry]['time'] = goodTs
+                    # Set the new 'dts' with a proper date object.
+                    tempData[entry]['dts'] = goodTs
                     
                     # And store the data if we're configured to.
                     if sensConfig['mongoStore']:
